@@ -10,7 +10,7 @@ const init = async () => {
   // db(MONGODB);
   const server = Hapi.server({
     port: port,
-    host: "localhost",
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     routes: {
       cors: true,
     },
